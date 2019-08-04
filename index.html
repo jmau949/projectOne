@@ -1,2 +1,93 @@
-test
-test2
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Project Title</title>
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Date Picker CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.datepick.css">
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- TODO: Content -->
+    <!--This container will help to have everything center and organized-->
+    <div class="container">
+
+        <!--Starting NavBar * Needs to be fixed to the proposed layout *-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">*LOGO GOES HERE*</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">History</a>
+                </div>
+            </div>
+        </nav>
+
+        <!--Real Body starts here-->
+        <div id="title">
+            <h1>TITTLE GOES HERE</h1>
+        </div>
+        <div id="location">
+            <h6>LOCATION GOES HERE</h6>
+        </div>
+        <div id="time-date">
+            <p id="time">Time <input type="text" ></p>
+            <p id="date">Date <input type="text" id="popupDatepicker"></p>
+        </div>
+        <div id="map">MAP WILL BE DISPLAY HERE</div>
+        <div id="weather-pic">
+            <img src="assets/images/sunny.png" atl="weather-picture">
+        </div>
+        <div id="weather"><h6>WEATHER INFO TO BE DISPLAY HERE</h6></div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+    <!-- Firebase Core -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+
+    <!-- Firebase Database -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+
+    <!-- jQuery Date Picker-->
+    <script type="text/javascript" src="assets/javascript/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/jquery.datepick.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>

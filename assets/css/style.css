@@ -1,0 +1,28 @@
+body{
+    text-align: center;
+}
+#time{
+    display: inline-block;
+}
+
+#date{
+    display: inline-block;
+}
+/*This might change later*/
+#map{
+    border: 1px solid black;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+#weather-pic{
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+img{
+    width: 100px;
+}
