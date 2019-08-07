@@ -1,18 +1,110 @@
-body{
+.body-container{
     text-align: center;
+    font-family: 'Scheherazade', serif;
 }
+
+#title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 49px;
+    padding: 15px 15px 0px 15px;
+}
+
+.active {
+    color: #5BBDE0 !important 
+}
+
+/* Time */
 #time{
     display: inline-block;
 }
 
+#time:focus {
+    box-shadow:  0 1px 0 0 #5BBDE0;
+    --webkit-box-shadow: 0 1px 0 0 #5BBDE0;
+    border-bottom: 1px solid #5BBDE0;
+}
+
+.timepicker-digital-display {
+    background-color: #5BBDE0;
+}
+.timepicker-close {
+    color: #5BBDE0;
+}
+.timepicker-canvas-bearing {
+    fill: #5BBDE0 !important;
+}
+.timepicker-canvas-bg {
+    fill: #5BBDE0 !important;
+}
+.timepicker-canvas line {
+    stroke: #5BBDE0 !important;
+}
+
+/* Date */
 #date{
     display: inline-block;
 }
+
+#date:focus {
+    box-shadow:  0 1px 0 0 #5BBDE0;
+    --webkit-box-shadow: 0 1px 0 0 #5BBDE0;
+    border-bottom: 1px solid #5BBDE0;
+}
+
+.datepicker-date-display {
+    background-color: #5BBDE0;
+}
+.datepicker-table td.is-today {
+    color: #5BBDE0;
+}
+.datepicker-table td.is-selected {
+    background-color: lightgray;
+}
+.datepicker-cancel {
+    color: #5BBDE0;
+}
+.datepicker-done {
+    color: #5BBDE0;
+}
+
+/* Range Selector */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #5BBDE0;
+  }
+
+input[type=range]+.thumb {
+    background-color: #5BBDE0;
+}
+
+/* Pace */
+#pace:focus {
+    box-shadow:  0 1px 0 0 #5BBDE0;
+    --webkit-box-shadow: 0 1px 0 0 #5BBDE0;
+    border-bottom: 1px solid #5BBDE0;
+}
+
+#input-form {
+    padding: 20px;
+}
+
+label {
+    font-size: 30px;
+}
+
+ul {
+    font-size: 20px;
+}
+
+#app {
+    font-weight: bolder;
+}
+
 /*This might change later*/
 #map{
     border: 1px solid black;
-    height: 150px;
-    width: 150px;
+    height: 500px;
+    width: 500px;
     margin: auto;
     margin-bottom: 15px;
 }
@@ -23,6 +115,117 @@ body{
     margin: auto;
     margin-bottom: 15px;
 }
-img{
-    width: 100px;
+
+.nav-wrapper {
+    background-color: #5BBDE0;
+}
+
+.page-footer {
+    margin: 25px;
+    background-color: #5BBDE0;
+    padding: 20px;
+    text-align: center;
+}
+
+#time-input {
+   
+}
+
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  #infowindow-content .title {
+    font-weight: bold;
+  }
+  
+  #infowindow-content {
+    display: none;
+  }
+  
+  #map #infowindow-content {
+    display: inline;
+  }
+  
+  .pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+  }
+  
+  #pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+  }
+  
+  .pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+  }
+  
+  .pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  
+  #pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+  
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
+  
+ 
+  #target {
+    width: 345px;
+  }
+
+  /*Weather info style here*/
+  img{
+    width: 50%;
+    height: auto;
+    margin:15px;
+    display: block
+}
+  .img-info {
+    font-family: Roboto;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+}
+.weather {    
+    width: 80%;
+    max-width: 750px;
+    
+    margin-bottom:30px;
+    display:flex;
+    flex: wrap;
+    height: -webkit-fill-available;
+    position: relative;
+    overflow: hidden;
+}
+.img-box {
+    width: 20%;
+    float: left;
+    overflow: hidden;
+    position:absolute;
+    margin:10px;
+    border:solid 1px black;
+    
 }
