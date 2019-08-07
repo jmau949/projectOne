@@ -18,5 +18,13 @@ function initMap() {
     var marker = new google.maps.Marker({position: uluru, map: map});
   }
   initMap()
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+  $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
 });
 

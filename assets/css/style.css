@@ -1,13 +1,105 @@
-body{
+.body-container{
     text-align: center;
+    font-family: 'Scheherazade', serif;
 }
+
+#title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 49px;
+    padding: 15px 15px 0px 15px;
+}
+
+.active {
+    color: #5BBDE0 !important 
+}
+
+/* Time */
 #time{
     display: inline-block;
 }
 
+#time:focus {
+    box-shadow:  0 1px 0 0 #5BBDE0;
+    --webkit-box-shadow: 0 1px 0 0 #5BBDE0;
+    border-bottom: 1px solid #5BBDE0;
+}
+
+.timepicker-digital-display {
+    background-color: #5BBDE0;
+}
+.timepicker-close {
+    color: #5BBDE0;
+}
+.timepicker-canvas-bearing {
+    fill: #5BBDE0 !important;
+}
+.timepicker-canvas-bg {
+    fill: #5BBDE0 !important;
+}
+.timepicker-canvas line {
+    stroke: #5BBDE0 !important;
+}
+
+/* Date */
 #date{
     display: inline-block;
 }
+
+#date:focus {
+    box-shadow:  0 1px 0 0 #5BBDE0;
+    --webkit-box-shadow: 0 1px 0 0 #5BBDE0;
+    border-bottom: 1px solid #5BBDE0;
+}
+
+.datepicker-date-display {
+    background-color: #5BBDE0;
+}
+.datepicker-table td.is-today {
+    color: #5BBDE0;
+}
+.datepicker-table td.is-selected {
+    background-color: lightgray;
+}
+.datepicker-cancel {
+    color: #5BBDE0;
+}
+.datepicker-done {
+    color: #5BBDE0;
+}
+
+/* Range Selector */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #5BBDE0;
+  }
+
+input[type=range]+.thumb {
+    background-color: #5BBDE0;
+}
+
+/* Pace */
+#pace:focus {
+    box-shadow:  0 1px 0 0 #5BBDE0;
+    --webkit-box-shadow: 0 1px 0 0 #5BBDE0;
+    border-bottom: 1px solid #5BBDE0;
+}
+
+#input-form {
+    padding: 20px;
+}
+
+label {
+    font-size: 30px;
+}
+
+ul {
+    font-size: 20px;
+}
+
+#app {
+    font-weight: bolder;
+}
+
 /*This might change later*/
 #map{
     border: 1px solid black;
@@ -25,4 +117,19 @@ body{
 }
 img{
     width: 100px;
+}
+
+.nav-wrapper {
+    background-color: #5BBDE0;
+}
+
+.page-footer {
+    margin: 25px;
+    background-color: #5BBDE0;
+    padding: 20px;
+    text-align: center;
+}
+
+#time-input {
+   
 }
