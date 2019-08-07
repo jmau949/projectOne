@@ -89,6 +89,7 @@
                         </form>
                     </form>
                 </div>
+                <p>Location <input id="pac-input" class="controls" type="text" placeholder="Sydney"></p>
             </div>
             <div class="divider"></div>
             <div id="map">MAP WILL BE DISPLAY HERE</div>
@@ -127,10 +128,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- Google Maps-->
-    <script type='text/javascript' src='config.js'></script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&callback=initMap">
-        </script>
+
+<script type='text/javascript' src='config.js'></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&libraries=places&callback=initAutocomplete"
+async defer></script>
 
     <!-- Firebase Core -->
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
