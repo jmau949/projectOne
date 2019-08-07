@@ -11,8 +11,8 @@ body{
 /*This might change later*/
 #map{
     border: 1px solid black;
-    height: 800px;
-    width: 800px;
+    height: 500px;
+    width: 500px;
     margin: auto;
     margin-bottom: 15px;
 }
@@ -88,13 +88,7 @@ img{
     border-color: #4d90fe;
   }
   
-  #title {
-    color: #fff;
-    background-color: #4d90fe;
-    font-size: 25px;
-    font-weight: 500;
-    padding: 6px 12px;
-  }
+ 
   #target {
     width: 345px;
   }
