@@ -82,6 +82,14 @@ function initAutocomplete() {
       map.fitBounds(bounds);
     });
   }
+  
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+  $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
 
 initAutocomplete() 
 
