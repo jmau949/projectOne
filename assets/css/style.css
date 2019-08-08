@@ -198,7 +198,7 @@ ul {
 
   /*Weather info style here*/
   img{
-    width: 50%;
+    
     height: auto;
     margin:15px;
     display: block
@@ -212,7 +212,7 @@ ul {
 .weather {    
     width: 80%;
     max-width: 750px;
-    
+    margin:0 auto;
     margin-bottom:30px;
     display:flex;
     flex: wrap;
@@ -221,7 +221,7 @@ ul {
     overflow: hidden;
 }
 .img-box {
-    width: 20%;
+    
     float: left;
     overflow: hidden;
     position:absolute;

@@ -98,6 +98,7 @@ initAutocomplete()
 $(document).on("change", weatherUpdate);
 
 function weatherUpdate() {
+    $(".weather").empty();
 
     //This first search is to get the "Key" for the city
     var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
@@ -121,38 +122,44 @@ function weatherUpdate() {
             $(".weather").masonry({
                 columnWidth: ".img-box",
                 itemSelector: ".img-box",
+                fitWidth: true
             });
             console.log(forecast);
             forecast.forEach(element => {
                 //This for loop is to make the IconPhrase all together that way will match with the picture name 
                 //as it is on the folder images
+                var dateinput = new Date($("#date").val() + " " + $("#time").val());
+                var dateApi = new Date(element.DateTime);
+                debugger
+                if (dateinput.getTime() === dateApi.getTime()) {
 
-                var imageSource = (element.IconPhrase).toLowerCase();
-                console.log(imageSource);
-                var endthisloop= false;
-                for (var i = 0; i < imageSource.length; i++) {
-                    
-                    if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-") {
-                        var imageSrc = imageSource.replace(/ /i, "");
-                        endthisloop = true;
+                    var imageSource = (element.IconPhrase).toLowerCase();
+                    console.log(imageSource);
+                    var endthisloop = false;
+                    for (var i = 0; i < imageSource.length; i++) {
+
+                        if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-") {
+                            var imageSrc = imageSource.replace(/ /i, "");
+                            endthisloop = true;
+                        }
+                        else if (endthisloop === false) {
+                            imageSrc = imageSource;
+                            console.log(imageSrc);
+                        }
                     }
-                    else if (endthisloop === false) {
-                        imageSrc = imageSource;
-                        console.log(imageSrc);
-                    }
+                    var weatherImg = $("<img>").attr("src", "assets/images/" + imageSrc + ".png");
+                    var imgbox = $("<div/>").attr({ class: "img-box" });
+
+                    imgbox.append(weatherImg);
+                    var weatherinfo = $("<div/>").attr({ class: "img-info" });
+                    imgbox.append(weatherinfo);
+                    var temp = $("<p>").html("<b>Temp:</b> " + (element.Temperature.Value + "F°"));
+                    var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
+                    weatherinfo.append(temp);
+                    weatherinfo.append(precp);
+                    $(".weather").append(imgbox).masonry("appended", imgbox);
+                    $(".weather").masonry();
                 }
-                var weatherImg = $("<img>").attr("src", "assets/images/" + imageSrc + ".png");
-                var imgbox = $("<div/>").attr({ class: "img-box" });
-
-                imgbox.append(weatherImg);
-                var weatherinfo = $("<div/>").attr({ class: "img-info" });
-                imgbox.append(weatherinfo);
-                var temp = $("<p>").html("<b>Temp:</b> " + (element.Temperature.Value + "F°"));
-                var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
-                weatherinfo.append(temp);
-                weatherinfo.append(precp);
-                $(".weather").append(imgbox).masonry("appended", imgbox);
-                $(".weather").masonry();
             });
             $(".weather").imagesLoaded().done(function () {
                 $(".weather").masonry({
