@@ -130,7 +130,7 @@ function weatherUpdate() {
                 //as it is on the folder images
                 var dateinput = new Date($("#date").val() + " " + $("#time").val());
                 var dateApi = new Date(element.DateTime);
-                debugger
+              
                 if (dateinput.getTime() === dateApi.getTime()) {
 
                     var imageSource = (element.IconPhrase).toLowerCase();
