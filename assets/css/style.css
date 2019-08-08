@@ -115,6 +115,9 @@ ul {
     margin: auto;
     margin-bottom: 15px;
 }
+img{
+    width: 100px;
+}
 
 .nav-wrapper {
     background-color: #5BBDE0;
@@ -127,9 +130,6 @@ ul {
     text-align: center;
 }
 
-#time-input {
-   
-}
 
 #description {
     font-family: Roboto;
