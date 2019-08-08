@@ -130,9 +130,6 @@ img{
     text-align: center;
 }
 
-#time-input {
-   
-}
 
 #description {
     font-family: Roboto;
@@ -198,3 +195,37 @@ img{
   #target {
     width: 345px;
   }
+
+  /*Weather info style here*/
+  img{
+    
+    height: auto;
+    margin:15px;
+    display: block
+}
+  .img-info {
+    font-family: Roboto;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+}
+.weather {    
+    width: 80%;
+    max-width: 750px;
+    margin:0 auto;
+    margin-bottom:30px;
+    display:flex;
+    flex: wrap;
+    height: -webkit-fill-available;
+    position: relative;
+    overflow: hidden;
+}
+.img-box {
+    
+    float: left;
+    overflow: hidden;
+    position:absolute;
+    margin:10px;
+    border:solid 1px black;
+    
+}
