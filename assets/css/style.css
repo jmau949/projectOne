@@ -3,6 +3,10 @@
     font-family: 'Scheherazade', serif;
 }
 
+.brand-logo {
+    padding-bottom: 5px;
+}
+
 #title {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 49px;
