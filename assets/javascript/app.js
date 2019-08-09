@@ -1,22 +1,9 @@
 //Global variables go here
 var locationKey;
+$('.datepicker').datepicker();
+$('.timepicker').timepicker();
 
 
-
-
-
-
-
-
-
-
-// This example adds a search box to a map, using the Google Place Autocomplete
-// feature. People can enter geographical searches. The search box will return a
-// pick list containing a mix of places and predicted search terms.
-
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -84,18 +71,16 @@ function initAutocomplete() {
       map.fitBounds(bounds);
     });
   }
-  
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
-
-  $(document).ready(function(){
-    $('.timepicker').timepicker();
-  });
-
-initAutocomplete() 
 
 
+
+function roundMinutes(dateinput) {
+
+    dateinput.setHours(dateinput.getHours() + Math.round(dateinput.getMinutes()/60));
+    dateinput.setMinutes(0);
+
+    return date;
+}
 
 
 
@@ -133,10 +118,10 @@ function weatherUpdate() {
                 //This for loop is to make the IconPhrase all together that way will match with the picture name 
                 //as it is on the folder images
                 var dateinput = new Date($("#date").val() + " " + $("#time").val());
+                roundMinutes(dateinput);
+                console.log(dateinput);
                 var dateApi = new Date(element.DateTime);
-              
                 if (dateinput.getTime() === dateApi.getTime()) {
-
                     var imageSource = (element.IconPhrase).toLowerCase();
                     console.log(imageSource);
                     var endthisloop = false;
@@ -157,8 +142,10 @@ function weatherUpdate() {
                     imgbox.append(weatherImg);
                     var weatherinfo = $("<div/>").attr({ class: "img-info" });
                     imgbox.append(weatherinfo);
+                    var title =  $("<p>").html("<b>" + (element.IconPhrase + "</b>"));
                     var temp = $("<p>").html("<b>Temp:</b> " + (element.Temperature.Value + "F°"));
                     var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
+                    weatherinfo.append(title);
                     weatherinfo.append(temp);
                     weatherinfo.append(precp);
                     $(".weather").append(imgbox).masonry("appended", imgbox);
