@@ -71,9 +71,6 @@ function initAutocomplete() {
       map.fitBounds(bounds);
     });
   }
-  
-
-
 
 
 $(document).on("change", weatherUpdate);
