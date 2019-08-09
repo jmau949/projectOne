@@ -73,6 +73,17 @@ function initAutocomplete() {
   }
 
 
+
+function roundMinutes(dateinput) {
+
+    dateinput.setHours(dateinput.getHours() + Math.round(dateinput.getMinutes()/60));
+    dateinput.setMinutes(0);
+
+    return date;
+}
+
+
+
 $(document).on("change", weatherUpdate);
 
 function weatherUpdate() {
@@ -107,10 +118,10 @@ function weatherUpdate() {
                 //This for loop is to make the IconPhrase all together that way will match with the picture name 
                 //as it is on the folder images
                 var dateinput = new Date($("#date").val() + " " + $("#time").val());
+                roundMinutes(dateinput);
+                console.log(dateinput);
                 var dateApi = new Date(element.DateTime);
-              
                 if (dateinput.getTime() === dateApi.getTime()) {
-
                     var imageSource = (element.IconPhrase).toLowerCase();
                     console.log(imageSource);
                     var endthisloop = false;
@@ -131,8 +142,10 @@ function weatherUpdate() {
                     imgbox.append(weatherImg);
                     var weatherinfo = $("<div/>").attr({ class: "img-info" });
                     imgbox.append(weatherinfo);
+                    var title =  $("<p>").html("<b>" + (element.IconPhrase + "</b>"));
                     var temp = $("<p>").html("<b>Temp:</b> " + (element.Temperature.Value + "F°"));
                     var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
+                    weatherinfo.append(title);
                     weatherinfo.append(temp);
                     weatherinfo.append(precp);
                     $(".weather").append(imgbox).masonry("appended", imgbox);
