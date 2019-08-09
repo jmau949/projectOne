@@ -219,3 +219,7 @@ img{
     position:absolute;
     margin:10px;
 }
+.bold {
+    font-weight: bolder;
+    text-decoration: underline;
+}
