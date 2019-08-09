@@ -1,4 +1,22 @@
-//Global variables go here
+const firebaseConfig = {
+  apiKey: "AIzaSyCfITc5Pg5rZxa_yTvo3lhsOg79bNdmghY",
+  authDomain: "runtrackdb.firebaseapp.com",
+  databaseURL: "https://runtrackdb.firebaseio.com",
+  projectId: "runtrackdb",
+  storageBucket: "",
+  messagingSenderId: "267990846579",
+  appId: "1:267990846579:web:a9a0af5fed16bb0a"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+
+const database = firebase.database();
+// var startTime = "";
+// var endTime = "";
+// var date = "";
+// // var location = '';
+
 var locationKey;
 $('.datepicker').datepicker();
 $('.timepicker').timepicker();
@@ -75,22 +93,18 @@ function initAutocomplete() {
 
 
 function roundMinutes(dateinput) {
-
     dateinput.setHours(dateinput.getHours() + Math.round(dateinput.getMinutes()/60));
     dateinput.setMinutes(0);
-
     return date;
 }
 
 
-
-$(document).on("change", weatherUpdate);
+$('#pac-input').on("change", weatherUpdate);
 
 function weatherUpdate() {
     $(".weather").empty();
-
     //This first search is to get the "Key" for the city
-    var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
+    var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
     var locationInput = $("#pac-input").val();
     var queryURL = "https://dataservice.accuweather.com/locations/v1/search?q=" + locationInput + "&apikey=" + apikey;
     $.ajax({
@@ -101,7 +115,7 @@ function weatherUpdate() {
         locationKey = location[0].Key;
 
         //After getting the "locationKey" This search will bring back the forecast for 12hours in the specified location
-        var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
+        var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
         var queryURL = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + locationKey + "?apikey=" + apikey;
         $.ajax({
             url: queryURL,
@@ -117,7 +131,7 @@ function weatherUpdate() {
             forecast.forEach(element => {
                 //This for loop is to make the IconPhrase all together that way will match with the picture name 
                 //as it is on the folder images
-                var dateinput = new Date($("#date").val() + " " + $("#time").val());
+                var dateinput = new Date($("#date").val().trim() + " " + $("#starttime").val().trim());
                 roundMinutes(dateinput);
                 console.log(dateinput);
                 var dateApi = new Date(element.DateTime);
@@ -162,6 +176,22 @@ function weatherUpdate() {
     })
 };
 
+
+
+$('#pac-input').on("change", data);
+function data(){
+console.log($("#starttime").val().trim())
+  var startTime = $("#starttime").val().trim();
+  var endTime = $("#endtime").val().trim();
+  var date = $("#date").val().trim();
+  var location = $("#pac-input").val().trim();
+  database.ref().push({
+    startTime: startTime,
+    endTime: endTime,
+    date: date,
+    location: location, 
+});
+}
 
 
 
