@@ -14,7 +14,6 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-
     <!-- Materialize Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -22,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.datepick.css">
 
     <!-- Local CSS -->
-
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <!-- Google Fonts -->
@@ -41,6 +39,7 @@
             </ul>
         </div>
     </nav>
+
     <div class="container"></div>
     <!-- Title -->
     <div class="body-container">
@@ -69,106 +68,96 @@
             <div class="row">
                 <form class="col s12" id="input-form">
                     <div class="row">
-                        <input id="time" type="text" class="timepicker">
-                        <label for="time" class>
-                            Time
-                        </label>
-                        <input id="date" type="text" class="datepicker">
-                        <label for="date" class>
-                            Date
-                        </label>
-                        <input id="pace" type="text" class="pace">
-                        <label for="pace" class>
-                            Pace
-                        </label>
+                        <div class="input-field col s6">
+                            <input id="time" type="text" class="timepicker" placeholder="Start Time">
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="time" type="text" class="timepicker" placeholder="End Time">
+                        </div>
                     </div>
-                    <form action="#">
-                        <p class="range-field">
-                            <input type="range" id="range-selector" min="1" max="31" />
-                        </p>
-                        <label for="range-selector" class>
-                            Number of Miles
-                        </label>
-                    </form>
-                </form>
+                    <div class="row">
+                        <form class="col s12" id="input-form">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="date" type="text" class="datepicker" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <form class="col s12" id="input-form">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="pac-input" class="controls" type="text" placeholder="Location">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="divider"></div>
+
+                            <div id="map">MAP WILL BE DISPLAY HERE</div>
+                            <div class="weather"></div>
+                </div>
             </div>
-            <p>Location <input id="pac-input" class="controls" type="text" placeholder="Sydney"></p>
         </div>
-        <div class="divider"></div>
-        <div id="map">MAP WILL BE DISPLAY HERE</div>
 
-        <div class="weather"></div>
-
-
-    </div>
-    </div>
-    </div>
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div class="container col s12">
+                © 2019 Copyright Team Blackwidow
+            </div>
+        </footer>
 
 
-    <!-- TODO: Content -->
-    <!-- Footer -->
+        <!--Ajax-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <footer class="page-footer">
-        <div class="container col s12">
-            © 2019 Copyright Team Blackwidow
-        </div>
-    </footer>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+            </script>
 
+        <!-- Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+            </script>
 
-    <!--Ajax-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-        </script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
-    <!-- Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
+        <!-- Google Maps-->
+        <!--<script type='text/javascript' src='config.js'></script>-->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&libraries=places&callback=initAutocomplete"
+            async defer></script>
 
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Google Maps-->
+
+        <script type='text/javascript' src='config.js'></script>
+
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&libraries=places&callback=initAutocomplete"
+            async defer></script>
 
 
-    <!-- Google Maps-->
-    <!--<script type='text/javascript' src='config.js'></script>-->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&libraries=places&callback=initAutocomplete"
-        async defer></script>
+        <!-- Firebase Core -->
+        <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
 
+        <!-- Firebase Database -->
+        <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
 
-    <!-- Google Maps-->
+        <!-- jQuery Date Picker-->
+        <script type="text/javascript" src="assets/javascript/jquery.plugin.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/jquery.datepick.js"></script>
 
-<script type='text/javascript' src='config.js'></script>
+        <!-- Load Masonry from https://masonry.desandro.com/ -->
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&libraries=places&callback=initAutocomplete"
-async defer></script>
+        <!-- Load imagesLoaded from https://imagesloaded.desandro.com/ -->
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
 
-
-    <!-- Firebase Core -->
-    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-
-    <!-- Firebase Database -->
-    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
-
-    <!-- jQuery Date Picker-->
-    <script type="text/javascript" src="assets/javascript/jquery.plugin.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/jquery.datepick.js"></script>
-
-    <!-- Load Masonry from https://masonry.desandro.com/ -->
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-
-    <!-- Load imagesLoaded from https://imagesloaded.desandro.com/ -->
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
-
-    <!-- App JS -->
-    <script src="assets/javascript/app.js"></script>
+        <!-- App JS -->
+        <script src="assets/javascript/app.js"></script>
 
 
 </body>
