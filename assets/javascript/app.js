@@ -123,7 +123,7 @@ function weatherUpdate() {
             var arraystarts = parseInt((moment(currentdate).preciseDiff(startdateinput)).replace(/[A-Za-z$-]/g, ""));
             var totalhours = parseInt((moment(startdateinput).preciseDiff(enddateinput)).replace(/[A-Za-z$-]/g, ""));
             var arrayends = parseInt(arraystarts + totalhours);
-            var forecastArray = forecast.slice(arraystarts, arrayends);
+            var forecastArray = forecast.slice(arraystarts-1, arrayends);
             forecastArray.forEach(element => {
 
                 //This for loop is to make the IconPhrase all together that way will match with the picture name 
