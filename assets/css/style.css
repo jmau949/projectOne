@@ -3,10 +3,13 @@
     font-family: 'Scheherazade', serif;
 }
 
-#title {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 49px;
-    padding: 15px 15px 0px 15px;
+.brand-logo {
+    padding-bottom: 5px;
+}
+
+#titlelogo {
+    width: 250px;
+    margin: 0 auto;
 }
 
 .active {
@@ -218,4 +221,8 @@ img{
     overflow: hidden;
     position:absolute;
     margin:10px;
+}
+.bold {
+    font-weight: bolder;
+    text-decoration: underline;
 }

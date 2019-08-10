@@ -1,4 +1,22 @@
-//Global variables go here
+const firebaseConfig = {
+  apiKey: "AIzaSyCfITc5Pg5rZxa_yTvo3lhsOg79bNdmghY",
+  authDomain: "runtrackdb.firebaseapp.com",
+  databaseURL: "https://runtrackdb.firebaseio.com",
+  projectId: "runtrackdb",
+  storageBucket: "",
+  messagingSenderId: "267990846579",
+  appId: "1:267990846579:web:a9a0af5fed16bb0a"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+
+const database = firebase.database();
+// var startTime = "";
+// var endTime = "";
+// var date = "";
+// // var location = '';
+
 var locationKey;
 
 //Calling Date and time picker functions
@@ -176,4 +194,19 @@ debugger
 
 
 
+$('#pac-input').on("change", data);
+function data(){
+console.log($("#start-time").val().trim())
+  var startTime = $("#start-time").val().trim();
+  var endTime = $("#end-time").val().trim();
+  var date = $("#date").val().trim();
+  var location = $("#pac-input").val().trim();
+  database.ref().push({
+    startTime: startTime,
+    endTime: endTime,
+    date: date,
+    location: location, 
+});
+}
 
+M.AutoInit();
