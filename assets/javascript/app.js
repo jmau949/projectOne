@@ -88,7 +88,7 @@ function weatherUpdate() {
     $(".weather").empty();
 
     //This first search is to get the "Location Key" for the city
-    var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
+    var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
     var locationInput = $("#pac-input").val();
     var queryURL = "https://dataservice.accuweather.com/locations/v1/search?q=" + locationInput + "&apikey=" + apikey;
     $.ajax({
@@ -99,7 +99,7 @@ function weatherUpdate() {
         
 
         //After getting the "locationKey" This search will bring back the forecast for 12hours in the specified location
-        var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
+        var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
         var queryURL = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + locationKey + "?apikey=" + apikey;
         $.ajax({
             url: queryURL,
@@ -125,14 +125,15 @@ function weatherUpdate() {
             var arrayends = parseInt(arraystarts + totalhours);
             var forecastArray = forecast.slice(arraystarts-1, arrayends);
             forecastArray.forEach(element => {
-
+debugger
+                console.log(forecastArray);
                 //This for loop is to make the IconPhrase all together that way will match with the picture name 
                 //as it is on the folder images
                 var imageSource = (element.IconPhrase).toLowerCase();
                 var endthisloop = false;
                 for (var i = 0; i < imageSource.length; i++) {
                     if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-" || imageSource.charAt(i) === "(" || imageSource.charAt(i) === ")") {
-                        var imageSrc = imageSource.replace(/ /i, "");
+                        var imageSrc = imageSource.replace(/ /ig, "");
                         endthisloop = true;
                     }
                     else if (endthisloop === false) {
