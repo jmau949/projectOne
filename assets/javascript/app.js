@@ -107,7 +107,7 @@ function weatherUpdate() {
 
     //This first search is to get the "Location Key" for the city
 
-    var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
+    var apikey = "zhjyjxaY1tSBmw9CZHiiY9nyCKp5Uh6M";
 
     var locationInput = $("#pac-input").val();
     var queryURL = "https://dataservice.accuweather.com/locations/v1/search?q=" + locationInput + "&apikey=" + apikey;
@@ -119,7 +119,7 @@ function weatherUpdate() {
         
 
         //After getting the "locationKey" This search will bring back the forecast for 12hours in the specified location
-        var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
+        var apikey = "zhjyjxaY1tSBmw9CZHiiY9nyCKp5Uh6M";
         var queryURL = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + locationKey + "?apikey=" + apikey;
         $.ajax({
             url: queryURL,
@@ -182,7 +182,6 @@ function weatherUpdate() {
                 weatherinfo.append(temp);
                 weatherinfo.append(precp);
                 weatherinfo.append(timedisplay2);
-
                 $(".weather").append(imgbox).masonry("appended", imgbox);
                 $(".weather").masonry();
 
