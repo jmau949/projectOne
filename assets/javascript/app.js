@@ -106,7 +106,9 @@ function weatherUpdate() {
     $(".weather").empty();
 
     //This first search is to get the "Location Key" for the city
-    var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
+
+    var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
+
     var locationInput = $("#pac-input").val();
     var queryURL = "https://dataservice.accuweather.com/locations/v1/search?q=" + locationInput + "&apikey=" + apikey;
     $.ajax({
@@ -150,7 +152,9 @@ function weatherUpdate() {
                 var endthisloop = false;
                 for (var i = 0; i < imageSource.length; i++) {
                     if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-" || imageSource.charAt(i) === "(" || imageSource.charAt(i) === ")") {
-                        var imageSrc = imageSource.replace(/ /i, "");
+
+                        var imageSrc = imageSource.replace(/[^A-Z0-9]+/ig, "");
+
                         endthisloop = true;
                     }
                     else if (endthisloop === false) {
@@ -170,11 +174,14 @@ function weatherUpdate() {
                 var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
                 var time = new Date(element.DateTime);
                 var timedisplay = moment(time).format("ddd D - hA");
-                console.log(timedisplay);
+
+                var timedisplay1 = timedisplay.toString();
+                var timedisplay2 = timedisplay1.slice(9)    
                 weatherinfo.append(title);
                 weatherinfo.append(temp);
                 weatherinfo.append(precp);
-                weatherinfo.append(timedisplay);
+                weatherinfo.append(timedisplay2);
+
                 $(".weather").append(imgbox).masonry("appended", imgbox);
                 $(".weather").masonry();
 
@@ -193,7 +200,7 @@ function weatherUpdate() {
 
 
 
-$('#pac-input').on("change", data);
+$('#pac-input').on("blur", data);
 function data(){
 console.log($("#start-time").val().trim())
   var startTime = $("#start-time").val().trim();
