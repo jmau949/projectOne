@@ -7,10 +7,9 @@
     padding-bottom: 5px;
 }
 
-#title {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 49px;
-    padding: 15px 15px 0px 15px;
+#titlelogo {
+    width: 250px;
+    margin: 0 auto;
 }
 
 .active {

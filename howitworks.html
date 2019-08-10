@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>How It Works</title>
     <!-- Reset CSS -->
     <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <!-- Materialize Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Date Picker CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.datepick.css">
+
     <!-- Local CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Scheherazade&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+
     <!-- Google Fonts -->
-
-
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Scheherazade&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -34,49 +39,70 @@
         </nav>
     </div>
 
-    <table class="striped responsive-table">
-        <thead>
-            <tr class='bold'>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Date</th>
-                <th>Location</th>
-            </tr>
-        </thead>
-        <tbody id='results'>
-        </tbody>
-    </table>
+    <!-- Explanation -->
+    <div class="section">
+        <div id="explanation">
+            <h4>How it works:</h4>
+            <ul>1.) Enter the location for your run</ul>
+            <ul>2.) Choose the Date</ul>
+            <ul>3.) Choose to Time</ul>
+            <ul>4.) Enter your average time per mile</ul>
+            <ul>5.) Enter the amount of miles you wish to run</ul>
+            <br>
+            <ul id="app">Let the app do the rest!</ul>
+        </div>
+    </div>
+    <div class="divider"></div>
 
-
+    <!-- Footer -->
     <footer class="page-footer">
         <div class="container col s12">
             © 2019 Copyright Team Blackwidow
         </div>
     </footer>
 
-
-
-
+    <!--Moment.js-->
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="assets/javascript/moment-precise-range.js"></script>
 
     <!--Ajax-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
         </script>
+
     <!-- Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
         </script>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!-- Firebase Core -->
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+
     <!-- Firebase Database -->
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
-    <script src="assets/javascript/history.js"></script>
+
+    <!-- jQuery Date Picker-->
+    <script type="text/javascript" src="assets/javascript/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/jquery.datepick.js"></script>
+
+    <!-- Load Masonry from https://masonry.desandro.com/ -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+
+    <!-- Load imagesLoaded from https://imagesloaded.desandro.com/ -->
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/javascript/app.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&libraries=places&callback=initAutocomplete"
+        async defer></script>
 </body>
-
-
 
 </html>
