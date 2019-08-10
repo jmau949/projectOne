@@ -39,3 +39,5 @@ firebase.initializeApp(firebaseConfig);
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
   });
+
+  M.AutoInit();
