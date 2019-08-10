@@ -106,7 +106,9 @@ function weatherUpdate() {
     $(".weather").empty();
 
     //This first search is to get the "Location Key" for the city
-    var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
+
+    var apikey = "zhjyjxaY1tSBmw9CZHiiY9nyCKp5Uh6M";
+
     var locationInput = $("#pac-input").val();
     var queryURL = "https://dataservice.accuweather.com/locations/v1/search?q=" + locationInput + "&apikey=" + apikey;
     $.ajax({
@@ -117,7 +119,7 @@ function weatherUpdate() {
         
 
         //After getting the "locationKey" This search will bring back the forecast for 12hours in the specified location
-        var apikey = "eXVmt0EGx4CKaAt3tX0S11lmwL4KJcVJ";
+        var apikey = "zhjyjxaY1tSBmw9CZHiiY9nyCKp5Uh6M";
         var queryURL = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + locationKey + "?apikey=" + apikey;
         $.ajax({
             url: queryURL,
@@ -150,7 +152,9 @@ function weatherUpdate() {
                 var endthisloop = false;
                 for (var i = 0; i < imageSource.length; i++) {
                     if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-" || imageSource.charAt(i) === "(" || imageSource.charAt(i) === ")") {
+
                         var imageSrc = imageSource.replace(/[^A-Z0-9]+/ig, "");
+
                         endthisloop = true;
                     }
                     else if (endthisloop === false) {
@@ -170,8 +174,9 @@ function weatherUpdate() {
                 var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
                 var time = new Date(element.DateTime);
                 var timedisplay = moment(time).format("ddd D - hA");
+
                 var timedisplay1 = timedisplay.toString();
-                var timedisplay2 = timedisplay1.slice(9)
+                var timedisplay2 = timedisplay1.slice(9)    
                 weatherinfo.append(title);
                 weatherinfo.append(temp);
                 weatherinfo.append(precp);
