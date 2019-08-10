@@ -26,30 +26,43 @@
 </head>
 
 <body>
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper col s12">
-                <a href="#" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo">
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./history.html">History</a></li>
-                        <li><a href="./howitworks.html">How It Works</a></li>
-                    </ul>
-            </div>
-        </nav>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./history.html">History</a></li>
+                <li><a href="./howitworks.html">How It Works</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./history.html">History</a></li>
+        <li><a href="./howitworks.html">How It Works</a></li>
+    </ul>
     </div>
 
     <!-- Explanation -->
     <div class="section">
-        <div id="explanation">
-            <h4>How it works:</h4>
-            <ul>1.) Enter the location for your run</ul>
-            <ul>2.) Choose the Date</ul>
-            <ul>3.) Choose to Time</ul>
-            <ul>4.) Enter your average time per mile</ul>
-            <ul>5.) Enter the amount of miles you wish to run</ul>
-            <br>
-            <ul id="app">Let the app do the rest!</ul>
+        <div class="container">
+            <div class="row">
+                <div class="col s6" id="explanation">
+                    <h4>How it works:</h4>
+                    <ul>1.) Enter the location for your run</ul>
+                    <ul>2.) Choose the Date</ul>
+                    <ul>3.) Choose to Time</ul>
+                    <ul>4.) Enter your average time per mile</ul>
+                    <ul>5.) Enter the amount of miles you wish to run</ul>
+                    <br>
+                    <ul id="app">Let the app do the rest!</ul>
+                </div>
+                <div class="container col s6">
+                    <img src="assets/images/phone.png" class="col s6" id="phone-photo">
+                </div>
+            </div>
         </div>
     </div>
     <div class="divider"></div>
