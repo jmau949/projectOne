@@ -3,18 +3,33 @@
     font-family: 'Scheherazade', serif;
 }
 
-#title {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 49px;
-    padding: 15px 15px 0px 15px;
+.brand-logo {
+    padding-bottom: 5px;
 }
 
+#titlelogo {
+    width: 250px;
+    margin: 0 auto;
+}
+
+#explanation {
+    font-family: 'Scheherazade', serif;
+}
 .active {
     color: #5BBDE0 !important 
 }
 
+h4 {
+    font-family: 'Scheherazade', serif;
+    text-align: center;
+}
+
 input {
     text-align: center;
+}
+
+#phone-photo {
+    width: 115%;
 }
 /* Time */
 #time{
@@ -106,8 +121,8 @@ ul {
 /*This might change later*/
 #map{
     border: 1px solid black;
-    height: 500px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
     margin: auto;
     margin-bottom: 15px;
 }
@@ -131,8 +146,18 @@ img{
     background-color: #5BBDE0;
     padding: 20px;
     text-align: center;
+    
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
 
 #description {
     font-family: Roboto;

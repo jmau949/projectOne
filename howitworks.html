@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Plan My Run</title>
-
+    <title>How It Works</title>
     <!-- Reset CSS -->
     <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
 
@@ -25,74 +23,50 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Scheherazade&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
     <div class="container">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo"></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li class="active"><a href="./index.html">Home</a></li>
-                    <li><a href="./history.html">History</a></li>
-                    <li><a href="./howitworks.html">How It Works</a></li>
-                </ul>
-            </div>
-        </nav>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./history.html">History</a></li>
+                <li class="active"><a href="./howitworks.html">How It Works</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <ul class="sidenav" id="mobile-demo">
-            <li class="active"><a href="./index.html">Home</a></li>
-            <li><a href="./history.html">History</a></li>
-            <li><a href="./howitworks.html">How It Works</a></li>
-        </ul>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./history.html">History</a></li>
+        <li class="active"><a href="./howitworks.html">How It Works</a></li>
+    </ul>
+    </div>
 
-
-        <!-- Title -->
+    <!-- Explanation -->
+    <div class="section">
         <div class="container">
-            <div class="section">
-                <div id="title">
-                    <img src="assets/images/titlelogo.png" id="titlelogo" class="col s12">
+            <div class="row">
+                <div class="col s6" id="explanation">
+                    <h4>How it works:</h4>
+                    <ul>1.) Enter the location for your run</ul>
+                    <ul>2.) Choose the Date</ul>
+                    <ul>3.) Choose to Time</ul>
+                    <ul>4.) Enter your average time per mile</ul>
+                    <ul>5.) Enter the amount of miles you wish to run</ul>
+                    <br>
+                    <ul id="app">Let the app do the rest!</ul>
                 </div>
-            </div>
-            <div class="divider"></div>
-            <div class="section">
-                <h4>Fill In The Information Below:</h4>
-                <div class="row">
-                    <form class="col s12" id="input-form">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input id="start-time" type="text" class="timepicker" placeholder="Start Time">
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="end-time" type="text" class="timepicker" placeholder="End Time">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <form class="col s12" id="input-form">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="date" type="text" class="datepicker" placeholder="Date">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <form class="col s12" id="input-form">
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="pac-input" class="controls" type="text"
-                                                    placeholder="Location">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div id="map">MAP WILL BE DISPLAY HERE</div>
-                                <div class="weather col s12"></div>
-                        </div>
+                <div class="container col s6">
+                    <img src="assets/images/phone.png" class="col s6" id="phone-photo">
                 </div>
             </div>
         </div>
     </div>
+</div>
     <!-- Footer -->
     <footer class="page-footer">
         <div class="container col s12">
@@ -121,9 +95,6 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-
-
-
     <!-- Firebase Core -->
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
 
@@ -140,16 +111,11 @@
     <!-- Load imagesLoaded from https://imagesloaded.desandro.com/ -->
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
 
-
-
     <!-- App JS -->
     <script src="assets/javascript/app.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBuq2x5EkWe6h9-J4HFGUrxxsQCwuZhU&libraries=places&callback=initAutocomplete"
         async defer></script>
-
-
-
 </body>
 
 </html>
