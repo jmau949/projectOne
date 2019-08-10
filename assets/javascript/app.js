@@ -147,7 +147,8 @@ function weatherUpdate() {
                 var weatherinfo = $("<div/>").attr({ class: "img-info" });
                 imgbox.append(weatherinfo);
                 var title = $("<p>").html("<b>" + (element.IconPhrase + "</b>"));
-                var temp = $("<p>").html("<b>Temp:</b> " + (element.Temperature.Value + "F°"));
+                var celsius = (5/9) * (element.Temperature.Value - 32);
+                var temp = $("<p>").html("<b>Temp:</b> " + (element.Temperature.Value + "F°/" + celsius.toFixed(2) +"C°"));
                 var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
                 var time = new Date(element.DateTime);
                 var timedisplay = moment(time).format("ddd D - hA");
