@@ -29,67 +29,69 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo"></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="./index.html">Home</a></li>
+    <div class="container">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo"></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="active"><a href="./index.html">Home</a></li>
+                    <li><a href="./history.html">History</a></li>
+                    <li><a href="./howitworks.html">How It Works</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li class="active"><a href="./index.html">Home</a></li>
             <li><a href="./history.html">History</a></li>
             <li><a href="./howitworks.html">How It Works</a></li>
-          </ul>
-        </div>
-      </nav>
-    
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./history.html">History</a></li>
-        <li><a href="./howitworks.html">How It Works</a></li>
-      </ul>
+        </ul>
 
-    <div class="container"></div>
-    <!-- Title -->
-    <div class="body-container">
-        <div class="section">
-            <div id="title">
-                <img src="assets/images/titlelogo.png" id="titlelogo" class="col s12">
+
+        <!-- Title -->
+        <div class="container">
+            <div class="section">
+                <div id="title">
+                    <img src="assets/images/titlelogo.png" id="titlelogo" class="col s12">
+                </div>
             </div>
-        </div>
-        <div class="divider"></div>
-        <div class="section">
-            <h4>Fill In The Information Below:</h4>
-            <div class="row">
-                <form class="col s12" id="input-form">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="start-time" type="text" class="timepicker" placeholder="Start Time">
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="end-time" type="text" class="timepicker" placeholder="End Time">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <form class="col s12" id="input-form">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="date" type="text" class="datepicker" placeholder="Date">
-                                </div>
+            <div class="divider"></div>
+            <div class="section">
+                <h4>Fill In The Information Below:</h4>
+                <div class="row">
+                    <form class="col s12" id="input-form">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="start-time" type="text" class="timepicker" placeholder="Start Time">
                             </div>
-                            <div class="row">
-                                <form class="col s12" id="input-form">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="pac-input" class="controls" type="text" placeholder="Location">
-                                        </div>
+                            <div class="input-field col s6">
+                                <input id="end-time" type="text" class="timepicker" placeholder="End Time">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <form class="col s12" id="input-form">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="date" type="text" class="datepicker" placeholder="Date">
                                     </div>
-                                </form>
-                            </div>
-                            <div class="divider"></div>
+                                </div>
+                                <div class="row">
+                                    <form class="col s12" id="input-form">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="pac-input" class="controls" type="text"
+                                                    placeholder="Location">
+                                            </div>
+                                        </div>
 
-                            <div id="map">MAP WILL BE DISPLAY HERE</div>
-                            
-                            <div class="weather"></div>
-                    </div>
+                                    </form>
+                                </div>
+                                <div id="map">MAP WILL BE DISPLAY HERE</div>
+                                <div class="weather col s12"></div>
+                        </div>
+                </div>
+
             </div>
         </div>
     </div>
