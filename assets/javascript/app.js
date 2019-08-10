@@ -172,9 +172,6 @@ function weatherUpdate() {
                 var timedisplay = moment(time).format("ddd D - hA");
                 var timedisplay1 = timedisplay.toString();
                 var timedisplay2 = timedisplay1.slice(9)
-                console.log(timedisplay);
-                console.log(timedisplay1)
-                console.log(timedisplay2)
                 weatherinfo.append(title);
                 weatherinfo.append(temp);
                 weatherinfo.append(precp);
