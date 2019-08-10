@@ -143,7 +143,7 @@ function weatherUpdate() {
             var arrayends = parseInt(arraystarts + totalhours);
             var forecastArray = forecast.slice(arraystarts-1, arrayends);
             forecastArray.forEach(element => {
-debugger
+
                 console.log(forecastArray);
                 //This for loop is to make the IconPhrase all together that way will match with the picture name 
                 //as it is on the folder images
@@ -151,7 +151,7 @@ debugger
                 var endthisloop = false;
                 for (var i = 0; i < imageSource.length; i++) {
                     if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-" || imageSource.charAt(i) === "(" || imageSource.charAt(i) === ")") {
-                        var imageSrc = imageSource.replace(/ /ig, "");
+                        var imageSrc = imageSource.replace(/[^A-Z0-9]+/ig, "");
                         endthisloop = true;
                     }
                     else if (endthisloop === false) {
