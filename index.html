@@ -29,18 +29,21 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper col s12">
-            <a href="#" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo">
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./history.html">History</a></li>
-            </ul>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo"></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./history.html">History</a></li>
+          </ul>
         </div>
-    </nav>
-</div>
+      </nav>
+    
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./history.html">History</a></li>
+      </ul>
 
     <div class="container"></div>
     <!-- Title -->
@@ -107,7 +110,7 @@
             © 2019 Copyright Team Blackwidow
         </div>
     </footer>
-    
+
     <!--Moment.js-->
     <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
     <script src="https://momentjs.com/downloads/moment.js"></script>

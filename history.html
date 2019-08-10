@@ -22,15 +22,20 @@
 
 <body>
     <nav>
-        <div class="nav-wrapper col s12">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./history.html">History</a></li>
-            </ul>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><img src="assets/images/logo.png" id="brand-logo"></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./history.html">History</a></li>
+          </ul>
         </div>
-    </nav>
-
+      </nav>
+    
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./history.html">History</a></li>
+      </ul>
     <table class="striped responsive-table">
         <thead>
             <tr class = 'bold'>

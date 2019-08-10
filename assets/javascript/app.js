@@ -195,9 +195,9 @@ function weatherUpdate() {
 
 $('#pac-input').on("change", data);
 function data(){
-console.log($("#starttime").val().trim())
-  var startTime = $("#starttime").val().trim();
-  var endTime = $("#endtime").val().trim();
+console.log($("#start-time").val().trim())
+  var startTime = $("#start-time").val().trim();
+  var endTime = $("#end-time").val().trim();
   var date = $("#date").val().trim();
   var location = $("#pac-input").val().trim();
   database.ref().push({
@@ -208,5 +208,4 @@ console.log($("#starttime").val().trim())
 });
 }
 
-
-
+M.AutoInit();
