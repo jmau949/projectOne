@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyCfITc5Pg5rZxa_yTvo3lhsOg79bNdmghY",
-  authDomain: "runtrackdb.firebaseapp.com",
-  databaseURL: "https://runtrackdb.firebaseio.com",
-  projectId: "runtrackdb",
-  storageBucket: "",
-  messagingSenderId: "267990846579",
-  appId: "1:267990846579:web:a9a0af5fed16bb0a"
+    apiKey: "AIzaSyCfITc5Pg5rZxa_yTvo3lhsOg79bNdmghY",
+    authDomain: "runtrackdb.firebaseapp.com",
+    databaseURL: "https://runtrackdb.firebaseio.com",
+    projectId: "runtrackdb",
+    storageBucket: "",
+    messagingSenderId: "267990846579",
+    appId: "1:267990846579:web:a9a0af5fed16bb0a"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -103,6 +103,7 @@ function roundMinutes(dateinput) {
 $(document).on("change", weatherUpdate);
 
 function weatherUpdate() {
+    console.log($("#choice").is(':checked'));
     $(".weather").empty();
 
     //This first search is to get the "Location Key" for the city
@@ -116,7 +117,7 @@ function weatherUpdate() {
         method: "GET"
     }).then(function (location) {
         var locationKey = location[0].Key;
-        
+
 
         //After getting the "locationKey" This search will bring back the forecast for 12hours in the specified location
         var apikey = "zhjyjxaY1tSBmw9CZHiiY9nyCKp5Uh6M";
@@ -132,7 +133,7 @@ function weatherUpdate() {
                 itemSelector: ".img-box",
                 fitWidth: true
             });
-          
+
             //Getting the date comparison to get the amount of data requested per time entered
             var startdateinput = new Date($("#date").val() + " " + $("#start-time").val());
             var enddateinput = new Date($("#date").val() + " " + $("#end-time").val());
@@ -143,7 +144,7 @@ function weatherUpdate() {
             var arraystarts = parseInt((moment(currentdate).preciseDiff(startdateinput)).replace(/[A-Za-z$-]/g, ""));
             var totalhours = parseInt((moment(startdateinput).preciseDiff(enddateinput)).replace(/[A-Za-z$-]/g, ""));
             var arrayends = parseInt(arraystarts + totalhours);
-            var forecastArray = forecast.slice(arraystarts-1, arrayends);
+            var forecastArray = forecast.slice(arraystarts - 1, arrayends);
             forecastArray.forEach(element => {
 
                 console.log(forecastArray);
@@ -170,14 +171,19 @@ function weatherUpdate() {
                 var weatherinfo = $("<div/>").attr({ class: "img-info" });
                 imgbox.append(weatherinfo);
                 var title = $("<p>").html("<b>" + (element.IconPhrase + "</b>"));
-                var celsius = (5/9) * (element.Temperature.Value - 32);
-                var temp = $("<p>").html("<b>Temp:</b> " + (element.Temperature.Value + "F°/" + celsius.toFixed(2) +"C°"));
+                var celsius = (5 / 9) * (element.Temperature.Value - 32);
+                if ($("#choice").is(':checked')== true) {
+                    var temp = $("<p>").html("<b>Temp:</b> " + (celsius.toFixed(2) + "C°"));
+                } else {
+                    var temp = $("<p>").html("<b>Temp:</b> " + element.Temperature.Value + "F°")
+                }
+
                 var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
                 var time = new Date(element.DateTime);
                 var timedisplay = moment(time).format("ddd D - hA");
 
                 var timedisplay1 = timedisplay.toString();
-                var timedisplay2 = timedisplay1.slice(9)    
+                var timedisplay2 = timedisplay1.slice(9)
                 weatherinfo.append(title);
                 weatherinfo.append(temp);
                 weatherinfo.append(precp);
@@ -201,18 +207,18 @@ function weatherUpdate() {
 
 
 $('#pac-input').on("blur", data);
-function data(){
-console.log($("#start-time").val().trim())
-  var startTime = $("#start-time").val().trim();
-  var endTime = $("#end-time").val().trim();
-  var date = $("#date").val().trim();
-  var location = $("#pac-input").val().trim();
-  database.ref().push({
-    startTime: startTime,
-    endTime: endTime,
-    date: date,
-    location: location, 
-});
+function data() {
+    console.log($("#start-time").val().trim())
+    var startTime = $("#start-time").val().trim();
+    var endTime = $("#end-time").val().trim();
+    var date = $("#date").val().trim();
+    var location = $("#pac-input").val().trim();
+    database.ref().push({
+        startTime: startTime,
+        endTime: endTime,
+        date: date,
+        location: location,
+    });
 }
 
 M.AutoInit();

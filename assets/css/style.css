@@ -238,7 +238,7 @@ body {
     overflow: hidden;
 }
 .img-box {
-    
+    text-align: center;
     float: left;
     overflow: hidden;
     position:absolute;
@@ -247,4 +247,14 @@ body {
 .bold {
     font-weight: bolder;
     text-decoration: underline;
+}
+.switch{
+    text-align: center;
+}
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #5BBDE0;
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+    border: 1px solid #5BBDE0;
+    background-color: white;
 }
