@@ -12,10 +12,6 @@ firebase.initializeApp(firebaseConfig);
 
 
 const database = firebase.database();
-// var startTime = "";
-// var endTime = "";
-// var date = "";
-// // var location = '';
 
 var locationKey;
 
@@ -23,8 +19,16 @@ var locationKey;
 $('.datepicker').datepicker();
 $('.timepicker').timepicker();
 
+//This function prevent to reload the page after enter
+$('#pac-input').keypress(function (event) {
+    if (event.keyCode == '13') {
+        event.preventDefault();
+    }
+});
+
 //Function to display the map
 function initAutocomplete() {
+
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -33.8688, lng: 151.2195 },
         zoom: 13,
@@ -88,6 +92,7 @@ function initAutocomplete() {
             }
         });
         map.fitBounds(bounds);
+
     });
 }
 
@@ -100,115 +105,115 @@ function roundMinutes(dateinput) {
 }
 
 //Calling the weather function after enter is pressed
-$(document).on("change", weatherUpdate);
+$(document).on("change keypress", weatherUpdate);
 
-function weatherUpdate() {
-    console.log($("#choice").is(':checked'));
-    $(".weather").empty();
+function weatherUpdate(e) {
+    if (e.type == 'change' || (e.type == 'keypress' && e.which == 13)) {
+        $(".weather").empty();
 
-    //This first search is to get the "Location Key" for the city
+        //This first search is to get the "Location Key" for the city
 
-    var apikey = "zhjyjxaY1tSBmw9CZHiiY9nyCKp5Uh6M";
+        var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
 
-    var locationInput = $("#pac-input").val();
-    var queryURL = "https://dataservice.accuweather.com/locations/v1/search?q=" + locationInput + "&apikey=" + apikey;
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (location) {
-        var locationKey = location[0].Key;
-
-
-        //After getting the "locationKey" This search will bring back the forecast for 12hours in the specified location
-        var apikey = "zhjyjxaY1tSBmw9CZHiiY9nyCKp5Uh6M";
-        var queryURL = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + locationKey + "?apikey=" + apikey;
+        var locationInput = $("#pac-input").val();
+        var queryURL = "https://dataservice.accuweather.com/locations/v1/search?q=" + locationInput + "&apikey=" + apikey;
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function (forecast) {
+        }).then(function (location) {
+            var locationKey = location[0].Key;
 
-            //Initializing Masonry
-            $(".weather").masonry({
-                columnWidth: ".img-box",
-                itemSelector: ".img-box",
-                fitWidth: true
-            });
 
-            //Getting the date comparison to get the amount of data requested per time entered
-            var startdateinput = new Date($("#date").val() + " " + $("#start-time").val());
-            var enddateinput = new Date($("#date").val() + " " + $("#end-time").val());
-            var currentdate = new Date();
-            roundMinutes(startdateinput);
-            roundMinutes(enddateinput);
-            roundMinutes(currentdate);
-            var arraystarts = parseInt((moment(currentdate).preciseDiff(startdateinput)).replace(/[A-Za-z$-]/g, ""));
-            var totalhours = parseInt((moment(startdateinput).preciseDiff(enddateinput)).replace(/[A-Za-z$-]/g, ""));
-            var arrayends = parseInt(arraystarts + totalhours);
-            var forecastArray = forecast.slice(arraystarts - 1, arrayends);
-            forecastArray.forEach(element => {
+            //After getting the "locationKey" This search will bring back the forecast for 12hours in the specified location
+            var apikey = "zJMUGxtgG8ycItRVzAUiXmAW9h6eI0HX";
+            var queryURL = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + locationKey + "?apikey=" + apikey;
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (forecast) {
 
-                console.log(forecastArray);
-                //This for loop is to make the IconPhrase all together that way will match with the picture name 
-                //as it is on the folder images
-                var imageSource = (element.IconPhrase).toLowerCase();
-                var endthisloop = false;
-                for (var i = 0; i < imageSource.length; i++) {
-                    if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-" || imageSource.charAt(i) === "(" || imageSource.charAt(i) === ")") {
-
-                        var imageSrc = imageSource.replace(/[^A-Z0-9]+/ig, "");
-
-                        endthisloop = true;
-                    }
-                    else if (endthisloop === false) {
-                        imageSrc = imageSource;
-                    }
-                }
-
-                //Loading all the info per hour requested
-                var weatherImg = $("<img>").attr("src", "assets/images/" + imageSrc + ".png");
-                var imgbox = $("<div/>").attr({ class: "img-box" });
-                imgbox.append(weatherImg);
-                var weatherinfo = $("<div/>").attr({ class: "img-info" });
-                imgbox.append(weatherinfo);
-                var title = $("<p>").html("<b>" + (element.IconPhrase + "</b>"));
-                var celsius = (5 / 9) * (element.Temperature.Value - 32);
-                if ($("#choice").is(':checked')== true) {
-                    var temp = $("<p>").html("<b>Temp:</b> " + (celsius.toFixed(2) + "C°"));
-                } else {
-                    var temp = $("<p>").html("<b>Temp:</b> " + element.Temperature.Value + "F°")
-                }
-
-                var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
-                var time = new Date(element.DateTime);
-                var timedisplay = moment(time).format("ddd D - hA");
-
-                var timedisplay1 = timedisplay.toString();
-                var timedisplay2 = timedisplay1.slice(9)
-                weatherinfo.append(title);
-                weatherinfo.append(temp);
-                weatherinfo.append(precp);
-                weatherinfo.append(timedisplay2);
-                $(".weather").append(imgbox).masonry("appended", imgbox);
-                $(".weather").masonry();
-
-            });
-
-            //Masonry library will arrange them in the center of the page from left to right
-            $(".weather").imagesLoaded().done(function () {
+                //Initializing Masonry
                 $(".weather").masonry({
                     columnWidth: ".img-box",
                     itemSelector: ".img-box",
+                    fitWidth: true
                 });
+
+                //Getting the date comparison to get the amount of data requested per time entered
+                var startdateinput = new Date($("#date").val() + " " + $("#start-time").val());
+                var enddateinput = new Date($("#date").val() + " " + $("#end-time").val());
+                var currentdate = new Date();
+                roundMinutes(startdateinput);
+                roundMinutes(enddateinput);
+                roundMinutes(currentdate);
+                var arraystarts = parseInt((moment(currentdate).preciseDiff(startdateinput)).replace(/[A-Za-z$-]/g, ""));
+                var totalhours = parseInt((moment(startdateinput).preciseDiff(enddateinput)).replace(/[A-Za-z$-]/g, ""));
+                var arrayends = parseInt(arraystarts + totalhours);
+                var forecastArray = forecast.slice(arraystarts - 1, arrayends);
+                forecastArray.forEach(element => {
+
+                    //This for loop is to make the IconPhrase all together that way will match with the picture name 
+                    //as it is on the folder images
+                    var imageSource = (element.IconPhrase).toLowerCase();
+                    var endthisloop = false;
+                    for (var i = 0; i < imageSource.length; i++) {
+                        if (imageSource.charAt(i) === " " || imageSource.charAt(i) === "/" || imageSource.charAt(i) === "-" || imageSource.charAt(i) === "(" || imageSource.charAt(i) === ")") {
+
+                            var imageSrc = imageSource.replace(/[^A-Z0-9]+/ig, "");
+
+                            endthisloop = true;
+                        }
+                        else if (endthisloop === false) {
+                            imageSrc = imageSource;
+                        }
+                    }
+
+                    //Loading all the info per hour requested
+                    var weatherImg = $("<img>").attr("src", "assets/images/" + imageSrc + ".png");
+                    var imgbox = $("<div/>").attr({ class: "img-box" });
+                    imgbox.append(weatherImg);
+                    var weatherinfo = $("<div/>").attr({ class: "img-info" });
+                    imgbox.append(weatherinfo);
+                    var title = $("<p>").html("<b>" + (element.IconPhrase + "</b>"));
+                    var celsius = (5 / 9) * (element.Temperature.Value - 32);
+                    if ($("#choice").is(':checked') == true) {
+                        var temp = $("<p>").html("<b>Temp:</b> " + (celsius.toFixed(2) + "C°"));
+                    } else {
+                        var temp = $("<p>").html("<b>Temp:</b> " + element.Temperature.Value + "F°")
+                    }
+
+                    var precp = $("<p>").html("<b>Precipitations:</b> " + (element.PrecipitationProbability + "%"));
+                    var time = new Date(element.DateTime);
+                    var timedisplay = moment(time).format("ddd D - hA");
+
+                    var timedisplay1 = timedisplay.toString();
+                    var timedisplay2 = timedisplay1.slice(9)
+                    weatherinfo.append(title);
+                    weatherinfo.append(temp);
+                    weatherinfo.append(precp);
+                    weatherinfo.append(timedisplay2);
+                    $(".weather").append(imgbox).masonry("appended", imgbox);
+                    $(".weather").masonry();
+
+                });
+
+                //Masonry library will arrange them in the center of the page from left to right
+                $(".weather").imagesLoaded().done(function () {
+                    $(".weather").masonry({
+                        columnWidth: ".img-box",
+                        itemSelector: ".img-box",
+                    });
+                })
             })
         })
-    })
+    }
 };
 
 
 
 $('#pac-input').on("blur", data);
 function data() {
-    console.log($("#start-time").val().trim())
+   
     var startTime = $("#start-time").val().trim();
     var endTime = $("#end-time").val().trim();
     var date = $("#date").val().trim();
@@ -220,5 +225,3 @@ function data() {
         location: location,
     });
 }
-
-M.AutoInit();
