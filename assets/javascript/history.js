@@ -1,3 +1,4 @@
+M.AutoInit();
 const firebaseConfig = {
     apiKey: "AIzaSyCfITc5Pg5rZxa_yTvo3lhsOg79bNdmghY",
     authDomain: "runtrackdb.firebaseapp.com",
